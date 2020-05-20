@@ -19,7 +19,10 @@ stages:
           vmImage: 'ubuntu-latest'
         steps:
           - script: |
-              docker build -t module-test:$(tag) '$(Build.SourcesDirectory)/CHAP05/testing-terratest/Dockerfile'
-
+              docker build -t module-test:$(tag) .
+            workingDirectory: "$(Build.SourcesDirectory)/CHAP05/testing-terratest/"
+            displayName: "Docker build"
           - script: |
-              docker run
+              docker run module-test:$(tag)
+            workingDirectory: "$(Build.SourcesDirectory)/CHAP05/testing-terratest/"
+            displayName: "Docker run"
