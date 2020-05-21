@@ -1,9 +1,5 @@
 name: Terraform Module integration test
 
-#defaults:
-#  run:
-#    shell: bash
-#    working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests/
 
 on: 
   push:
@@ -16,10 +12,6 @@ jobs:
     steps:
     - name: Check out code  
       uses: actions/checkout@v1
-    
-    - name: test
-      run: |
-        echo $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
 
     - name: Set up Go 1.14
       uses: actions/setup-go@v1
@@ -28,11 +20,12 @@ jobs:
       id: go
 
     - name: Get Go dependencies
-      #working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
-      run: go get -v -t -d ./...
+      working-directory: CHAP05/testing-terratest/module
+      run: |
+        curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+        dep ensure
         
     - name: Run Tests
       working-directory: "CHAP05/testing-terratest/module/tests/"
       run: |
-        echo $GITHUB_WORKSPACE/Terraform-Cookbook/CHAP05/testing-terratest/module/tests
         go test -v -timeout 30m
