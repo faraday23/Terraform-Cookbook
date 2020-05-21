@@ -1,9 +1,9 @@
 name: Terraform Module integration test
 
-defaults:
-  run:
-    shell: bash
-    working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests/
+#defaults:
+#  run:
+#    shell: bash
+#    working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests/
 
 on: 
   push:
