@@ -20,7 +20,7 @@ jobs:
       id: go
 
     - name: Get dependencies
-      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
+      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/
       run: |
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
