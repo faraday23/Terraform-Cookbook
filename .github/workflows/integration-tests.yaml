@@ -13,8 +13,9 @@ jobs:
       uses: actions/checkout@v1
     
     - name: test
+      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
       run: |
-        echo $GITHUB_WORKSPACE/Terraform-Cookbook/CHAP05/testing-terratest/module/tests
+        echo $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
 
     - name: Set up Go 1.14
       uses: actions/setup-go@v1
@@ -27,7 +28,7 @@ jobs:
       run: go get -v -t -d ./...
         
     - name: Run Tests
-      working-directory: $GITHUB_WORKSPACE/Terraform-Cookbook/CHAP05/testing-terratest/module/tests
+      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
       run: |
         echo $GITHUB_WORKSPACE/Terraform-Cookbook/CHAP05/testing-terratest/module/tests
         go test -v -timeout 30m
