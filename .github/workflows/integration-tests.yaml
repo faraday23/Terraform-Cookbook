@@ -1,0 +1,34 @@
+name: Terraform Module integration test
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  validate:
+    name: Test Module and publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code  
+      uses: actions/checkout@v1
+
+   - name: Set up Go 1.14
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.14
+      id: go
+
+    - name: Get dependencies
+      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
+      run: |
+        if [ -f Gopkg.toml ]; then
+            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+            dep ensure
+        else
+          go get -v -t -d ./...  
+        fi
+
+    - name: Test
+      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
+      run: go test -v
