@@ -20,7 +20,7 @@ jobs:
       id: go
 
     - name: Get Go dependencies
-      working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
+      #working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
       run: go get -v -t -d ./...
         
     - name: Run Tests
