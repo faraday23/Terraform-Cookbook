@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-
 jobs:
   validate:
     name: Test Module and publish
@@ -20,7 +19,6 @@ jobs:
       id: go
 
     - name: Get Go dependencies
-      
       #working-directory: $GITHUB_WORKSPACE/CHAP05/testing-terratest/module/tests
       run: go get -v -t -d ./...
         
