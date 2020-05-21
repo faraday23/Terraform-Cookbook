@@ -9,7 +9,9 @@ jobs:
     name: Test Module and publish
     runs-on: ubuntu-latest
     steps:
-
+      - name: Check out code
+        uses: actions/checkout@v1
+        
       - name: Set up Go 1.14
         uses: actions/setup-go@v1
         with:
