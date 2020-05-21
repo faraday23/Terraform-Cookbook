@@ -20,10 +20,7 @@ jobs:
       id: go
 
     - name: Get Go dependencies
-      working-directory: CHAP05/testing-terratest/module
-      run: |
-        curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-        dep ensure
+      run: go get -v -t -d ./...
         
     - name: Run Tests
       working-directory: "CHAP05/testing-terratest/module/tests/"
