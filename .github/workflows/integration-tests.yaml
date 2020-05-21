@@ -26,3 +26,8 @@ jobs:
       working-directory: "CHAP05/testing-terratest/module/tests/"
       run: |
         go test -v -timeout 30m
+        
+    - name: Bump version and push tag
+      uses: mathieudutour/github-tag-action@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
