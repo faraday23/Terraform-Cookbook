@@ -1,5 +1,4 @@
 name: Terraform Module integration test
-
 on: 
   push:
     branches:
