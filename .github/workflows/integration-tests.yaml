@@ -11,6 +11,10 @@ jobs:
     steps:
     - name: Check out code  
       uses: actions/checkout@v1
+    
+    - name: test
+      run: |
+        echo $GITHUB_WORKSPACE/Terraform-Cookbook/CHAP05/testing-terratest/module/tests
 
     - name: Set up Go 1.14
       uses: actions/setup-go@v1
